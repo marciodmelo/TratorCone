@@ -1,11 +1,11 @@
+# C
 import pygame
 
-# Cores
-COLOR_ORANGE = (255, 128, 0)
-COLOR_WHITE = (255, 255, 255)
-COLOR_YELLOW = (255, 234, 0)
+COLOR_ORANGE = (255,128,0)
+COLOR_WHITE = (255,255,255)
+COLOR_YELlOW = (255, 234, 0)
 
-# Velocidades das entidades
+# E
 ENTITY_SPEED = {
     'Level1Bg0': 0,
     'Level1Bg1': 1,
@@ -17,15 +17,14 @@ ENTITY_SPEED = {
     'Obstacle': 6,
 }
 
-# Evento para criação de obstáculos
 EVENT_OBSTACLE = pygame.USEREVENT + 1
 
-# Opções do menu
+# M
 MENU_OPTION = (
     'New Game',
     'Exit'
 )
 
-# Dimensões da tela
+# W
 WIN_WIDTH = 800
 WIN_HEIGHT = 450
