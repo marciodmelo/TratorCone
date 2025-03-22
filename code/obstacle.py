@@ -10,6 +10,3 @@ class Obstacle(Entity):
 
     def move(self, ):
         self.rect.centerx += ENTITY_SPEED[self.name]
-
-        #if self.rect.left >= WIN_WIDTH:
-        #    self.rect.right = 0
