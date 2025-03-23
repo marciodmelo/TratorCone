@@ -4,26 +4,33 @@ import sys
 import pygame.display
 from pygame import Surface, Rect
 from pygame.font import Font
-from code.const import C_WHITE, WIN_HEIGHT, EVENT_OBSTACLE, MENU_OPTION, C_GREEN, C_CYAN
+from code.const import C_WHITE, WIN_HEIGHT, EVENT_OBSTACLE, MENU_OPTION, C_GREEN, C_CYAN, EVENT_TIMEOUT, TIMEOUT_STEP, \
+    TIMEOUT_LEVEL, SPAWN_TIME
 from code.entity import Entity
 from code.entityFactory import EntityFactory
 from code.entityMediator import EntityMediator
+from code.player import Player
 
 
 class Level:
-    def __init__(self, window, name, game_mode):
+    def __init__(self, window: Surface, name: str, game_mode: str, player_score: list[int]):
         self.window = window
         self.name = name
         self.game_mode = game_mode
-        self.timeout = 20000
+        self.timeout = TIMEOUT_LEVEL
         self.entity_list: list[Entity] = []
-        self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
-        self.entity_list.append(EntityFactory.get_entity('Player1'))
-        pygame.time.set_timer(EVENT_OBSTACLE, 1000)
+        self.entity_list.extend(EntityFactory.get_entity(self.name + 'Bg'))
+        player = EntityFactory.get_entity('Player1')
+        player.score = player_score[0]
+        self.entity_list.append(player)
+        pygame.time.set_timer(EVENT_OBSTACLE, SPAWN_TIME)
         if game_mode == MENU_OPTION[1]:
-            self.entity_list.append(EntityFactory.get_entity('Player2'))
+            player = EntityFactory.get_entity('Player2')
+            player.score = player_score[1]
+            self.entity_list.append(player)
+        pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)
 
-    def run(self, ):
+    def run(self, player_score: list[int]):
         pygame.mixer_music.load(f'./asset/{self.name}.mp3')
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
@@ -44,6 +51,16 @@ class Level:
 
                 if event.type == EVENT_OBSTACLE:
                     self.entity_list.append(EntityFactory.get_entity('Obstacle'))
+
+                if event.type == EVENT_TIMEOUT:
+                    self.timeout -= TIMEOUT_STEP
+                    if self.timeout == 0:
+                        for ent in self.entity_list:
+                            if isinstance(ent, Player) and ent.name == 'Player1':
+                                player_score[0] = ent.score
+                            if isinstance(ent, Player) and ent.name == 'Player2':
+                                player_score[1] = ent.score
+                        return True
 
             self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', C_WHITE, (10, 5))
             self.level_text(14, f'fps: {clock.get_fps() :.0f}', C_WHITE, (10, WIN_HEIGHT - 35))

@@ -20,10 +20,10 @@ class EntityMediator:
             valid_interation = True
 
         if valid_interation:
-            if (ent1.rect.right >= ent2.rect.left and
-                    ent1.rect.left <= ent2.rect.right and
-                    ent1.rect.bottom >= ent2.rect.top and
-                    ent1.rect.top <= ent2.rect.bottom):
+            if (ent2.rect.bottom > ent1.rect.bottom and
+                    ent2.rect.right > ent1.rect.left and
+                    ent2.rect.left < ent1.rect.right):
+
                 ent1.health -= ent2.damage
                 ent2.health -= ent1.damage
                 ent1.last_dmg = ent2.name

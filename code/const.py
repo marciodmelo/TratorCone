@@ -61,6 +61,8 @@ ENTITY_SCORE = {
     'Obstacle': 1,
 }
 
+EVENT_TIMEOUT = pygame.USEREVENT + 2
+
 # M
 MENU_OPTION = (
     'New Game - 1 Player',
@@ -73,6 +75,13 @@ PLAYER_KEY_UP = {'Player1': pygame.K_UP, 'Player2': pygame.K_w}
 PLAYER_KEY_DOWN = {'Player1': pygame.K_DOWN, 'Player2': pygame.K_s}
 PLAYER_KEY_LEFT = {'Player1': pygame.K_LEFT, 'Player2': pygame.K_a}
 PLAYER_KEY_RIGHT = {'Player1': pygame.K_RIGHT, 'Player2': pygame.K_d}
+
+# S
+SPAWN_TIME = 1000
+
+# T
+TIMEOUT_STEP = 100
+TIMEOUT_LEVEL = 20000
 
 # W
 WIN_WIDTH = 800
