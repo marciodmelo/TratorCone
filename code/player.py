@@ -14,6 +14,7 @@ class Player(Entity):
 
     def move(self, ):
         pressed_key = pygame.key.get_pressed()
+
         if pressed_key[PLAYER_KEY_UP[self.name]] and self.rect.top >= 275:
                 self.rect.centery -= 5
         if pressed_key[PLAYER_KEY_DOWN[self.name]] and self.rect.top <= 340:

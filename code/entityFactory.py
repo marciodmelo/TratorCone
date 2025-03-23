@@ -19,8 +19,8 @@ class EntityFactory:
                     list_bg.append(Background(f'Level1Bg{i}', (-WIN_WIDTH, 0)))
                 return list_bg
             case 'Player1':
-                return Player('Player1', (WIN_WIDTH- 220, 345))
+                return Player('Player1', (WIN_WIDTH- 220, 300))
             case 'Player2':
-                return Player('Player2', (WIN_WIDTH - 200, 300))
+                return Player('Player2', (WIN_WIDTH - 200, 345))
             case 'Obstacle':
                 return  Obstacle('Obstacle', (0, random.randint(330, 390)))
