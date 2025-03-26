@@ -29,6 +29,7 @@ class EntityMediator:
                 ent1.last_dmg = ent2.name
                 ent2.last_dmg = ent1.name
 
+
     @staticmethod
     def give_score(obstacle: Obstacle, entity_listy: list[Entity]):
         if obstacle.last_dmg == 'Player1':
