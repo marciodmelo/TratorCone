@@ -3,7 +3,6 @@
 from code.const import WIN_WIDTH, ENTITY_SPEED
 from code.entity import Entity
 
-
 class Background(Entity):
     def __init__(self, name: str, position: tuple[int, int]):
         super().__init__(name, position)
