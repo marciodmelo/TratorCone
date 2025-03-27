@@ -20,9 +20,10 @@ class Score:
         name = ''
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
+            text = 'Digite seu nome com até 4 letras:'
+            score = player_score[0]
 
             if game_mode == MENU_OPTION[0]:
-                score = player_score[0]
                 self.score_text(48, 'VOCÊ VENCEU!!', C_YELlOW, SCORE_POS['Title'])
                 text = 'Digite seu nome com até 4 letras:'
 
@@ -30,11 +31,10 @@ class Score:
                 if player_score[0] >= player_score[1]:
                     score = player_score[0]
                     self.score_text(48, 'VOCÊ VENCEU PLAYER1!!', C_YELlOW, SCORE_POS['Title'])
-                    text = 'Digite seu nome com até 4 letras:'
                 else:
                     score = player_score[1]
                     self.score_text(48, 'VOCÊ VENCEU PLAYER2!!', C_YELlOW, SCORE_POS['Title'])
-                    text = 'Digite seu nome com até 4 letras:'
+
 
             self.score_text(20, text, C_WHITE, SCORE_POS['EnterName'])
 

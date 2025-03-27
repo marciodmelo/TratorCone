@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 import pygame
 
 from code.const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
@@ -33,4 +31,5 @@ class Game:
                 pygame.quit()
                 quit()
             else:
-                pass
+                pygame.quit()
+                quit()
