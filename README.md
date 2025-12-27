@@ -1,4 +1,4 @@
-# Corrida de Obstáculos — Jogo em PyGame
+# TratorCone — Jogo em PyGame
 
 Projeto acadêmico desenvolvido em Python com a biblioteca PyGame, com o objetivo
 de praticar Programação Orientada a Objetos, organização de código e lógica de jogos.
